@@ -60,7 +60,7 @@ def get_retriever():
 
 def get_dictionary_chain():
     dictionary = [
-        "사람을 나타내는 일반 표현 -> 거주자",
+        "문서 찾기 -> 문서 검색",
     ]
 
     prompt = ChatPromptTemplate.from_template(
