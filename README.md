@@ -2,8 +2,6 @@
 
 Streamlit 채팅 UI에서 시작해 OpenAI, Pinecone, LangChain RAG, 대화 이력, Few-shot Prompt를 단계적으로 연결하는 실습 저장소입니다.
 
-이 저장소는 공개 예제 `jasonkang14/inflearn-streamlit-lecture`의 학습 아이디어를 참고하되, 코드는 현재 패키지 구조에 맞게 교육용으로 다시 구성했습니다.
-
 ## 실습 방식
 
 각 Step은 앞 단계에서 배운 내용을 누적해 확장합니다.
@@ -94,7 +92,7 @@ OPENAI_CHAT_MODEL=gpt-4o
 
 ## Step 04부터 필요한 Pinecone 준비
 
-Step 04 완성본에는 원본 예제에 없던 **Index 생성 + 문서 적재 코드**를 추가했습니다.
+Step 04에서는 **Pinecone Index 생성 + 문서 적재 + Retriever 검색**을 한 흐름으로 실습합니다.
 
 ```bash
 python step04_pinecone_retriever/complete/prepare_index.py
@@ -153,11 +151,10 @@ Streaming Response
 - 현재 Message History는 Python 프로세스 메모리에 저장되므로 앱을 재시작하면 사라집니다.
 - 운영 환경에서는 인증, 비용 제어, 로그 개인정보 제거, Redis/DB 기반 History 저장 등을 추가해야 합니다.
 
-## 참고
+## 참고 자료
 
-- Original reference: https://github.com/jasonkang14/inflearn-streamlit-lecture
 - Streamlit: https://docs.streamlit.io/
 - LangChain: https://python.langchain.com/
 - Pinecone: https://docs.pinecone.io/
 
-이 저장소는 원본 저장소를 그대로 복제한 것이 아니라, 단계별 실습을 위해 새로 구성한 교육용 코드입니다.
+이 저장소는 Streamlit 기반 RAG 애플리케이션을 단계별로 학습할 수 있도록 구성한 교육용 예제입니다.
