@@ -1,0 +1,33 @@
+name: Verify cookbook
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+          python -m pip check
+
+      - name: Verify imports
+        run: |
+          python -c "import streamlit, langchain_core, langchain_classic, langchain_openai, langchain_pinecone, pinecone; print('IMPORT OK')"
+
+      - name: Compile Python sources
+        run: |
+          python -m compileall -q             step01_streamlit_chat_ui             step02_session_state             step03_llm_basic             step04_pinecone_retriever             step05_dictionary_chain             step06_history_aware_retriever             step07_conversational_rag             step08_final_streamlit_rag
