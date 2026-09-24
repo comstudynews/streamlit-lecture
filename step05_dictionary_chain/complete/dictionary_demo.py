@@ -10,7 +10,7 @@ ROOT_DIR = Path(__file__).resolve().parents[2]
 load_dotenv(ROOT_DIR / ".env")
 
 dictionary = [
-    "사람을 나타내는 일반 표현 -> 거주자",
+    "문서 찾기 -> 문서 검색",
 ]
 
 prompt = ChatPromptTemplate.from_template(
@@ -34,6 +34,6 @@ llm = ChatOpenAI(
 
 chain = prompt | llm | StrOutputParser()
 
-question = "이 사람에게 적용되는 기준이 뭐예요?"
+question = "관련 문서를 어떻게 찾나요?"
 print("입력 :", question)
 print("출력 :", chain.invoke({"question": question}))
